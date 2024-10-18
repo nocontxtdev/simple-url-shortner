@@ -8,12 +8,15 @@
   <body>
     <h1>URL Shortner</h1>
     <form action="/shorten" method="post">
-      <label for="longurl">Enter a long URL:</label>
-      <input type="url" id="longurl" name="longurl" required />
+      <label for="longUrl">Enter a long URL:</label>
+      <input type="url" id="longUrl" name="longUrl" required />
       <button type="submit">Shorten</button>
     </form>
     <% if(shortUrl) { %>
-    <p>Your shortened URL is: <a href="<%=shortUrl %>"><%=shortUrl %></a></p>
+    <p>
+      Your shortened URL is:
+      <a href="<%=shortUrl %>" target="_blank"><%=shortUrl %></a>
+    </p>
     <% } %>
   </body>
 </html>

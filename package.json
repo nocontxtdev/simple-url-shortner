@@ -2,6 +2,7 @@
   "name": "url-shortner",
   "version": "1.0.0",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
@@ -14,7 +15,8 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.1",
-    "mongoose": "^8.7.1"
+    "mongoose": "^8.7.1",
+    "nanoid": "^5.0.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
