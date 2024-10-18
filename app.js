@@ -3,11 +3,21 @@ import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
 import router from "./routes/index.js";
+import cron from "node-cron";
 
 const app = express();
 
 // Database connection
 mongoose.connect("mongodb://localhost/urlshortener", {});
+
+cron.schedule("0 0 * * *", async () => {
+  try {
+    await Url.deleteMany({ expiresAt: { $lt: new Date() } });
+    console.log("Expired URLs removed");
+  } catch (err) {
+    console.error("Error removing expired URLs", err);
+  }
+});
 
 // Set the view engine and middleware
 app.set("view engine", "ejs");

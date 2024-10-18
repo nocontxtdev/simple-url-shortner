@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortner</title>
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <h1>URL Shortner</h1>
     <form action="/shorten" method="post">
       <label for="longUrl">Enter a long URL:</label>
       <input type="url" id="longUrl" name="longUrl" required />
+      <label for="expiresAt">Expiration Date (Optional):</label>
+      <input type="date" id="expiresAt" name="expiresAt" />
       <button type="submit">Shorten</button>
     </form>
     <% if(shortUrl) { %>
@@ -17,6 +20,49 @@
       Your shortened URL is:
       <a href="<%=shortUrl %>" target="_blank"><%=shortUrl %></a>
     </p>
+    <% } %> <% if (error) { %>
+    <p><%= error %></p>
     <% } %>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Original URL</th>
+          <th>Shortened URL</th>
+          <th>Clicks</th>
+          <th>Expires At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% urls.forEach(url => { %>
+        <tr>
+          <td><%= url.longUrl %></td>
+          <td>
+            <a href="<%= url.shortUrl %>" target="_blank">
+              <%= url.shortUrl %>
+            </a>
+          </td>
+          <td><%= url.clicks %></td>
+          <td>
+            <%= url.expiresAt ? new
+            Date(url.expiresAt).toISOString().split("T")[0] : "No Expiration" %>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <!-- Pagination controls -->
+    <div class="pagination">
+      <% if (currentPage > 1) { %>
+      <a href="/?page=<%= currentPage - 1 %>">Previous</a>
+      <% } %> <% for (let i = 1; i <= totalPages; i++) { %>
+      <a href="/?page=<%= i %>" class="<%= currentPage == i ? 'active' : '' %>">
+        <%= i %>
+      </a>
+      <% } %> <% if (currentPage < totalPages) { %>
+      <a href="/?page=<%= parseInt(currentPage) + 1 %>">Next</a>
+      <% } %>
+    </div>
   </body>
 </html>

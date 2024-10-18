@@ -1,0 +1,213 @@
+/* General Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+form input {
+  padding: 10px;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Short URL result */
+p {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  max-width: 1000px; /* Maximum width of the table */
+  table-layout: fixed; /* Ensures fixed table size */
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #333;
+  color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  vertical-align: middle; /* Vertically align content to the middle */
+}
+
+/* Assign specific widths to each column */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 50%; /* Give the "Original URL" column more width */
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 20%; /* Shortened URL column */
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 15%; /* Clicks column */
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  width: 15%; /* Expires At column */
+}
+
+/* Prevent overly long URLs from breaking layout */
+td {
+  white-space: nowrap; /* Prevent the text from breaking into new lines */
+  overflow: hidden; /* Hide the overflowing text */
+  text-overflow: ellipsis; /* Add '...' at the end of truncated text */
+  word-wrap: break-word;
+  line-height: 1.5; /* Allow two lines max */
+  height: 3em; /* Ensures each cell takes up a maximum of two lines */
+}
+
+/* Styling the pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  padding: 10px 15px;
+  margin: 0 5px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination a:hover {
+  background-color: #555;
+}
+table {
+  width: 100%;
+  max-width: 1000px; /* Maximum width of the table */
+  table-layout: fixed; /* Ensures fixed table size */
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background-color: #333;
+  color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  vertical-align: middle; /* Vertically align content to the middle */
+}
+
+/* Prevent overly long URLs from breaking layout */
+td {
+  white-space: nowrap; /* Prevent the text from breaking into new lines */
+  overflow: hidden; /* Hide the overflowing text */
+  text-overflow: ellipsis; /* Add '...' at the end of truncated text */
+  max-width: 300px; /* Set max width to control the visible part */
+  word-wrap: break-word;
+  line-height: 1.5; /* Allow two lines max */
+  height: 3em; /* Ensures each cell takes up a maximum of two lines */
+}
+
+/* Handle long URLs gracefully by showing a limited number of lines */
+.long-url {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to two lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis at the end */
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.pagination a.active {
+  background-color: #0056b3;
+}
+
+.pagination a:hover {
+  background-color: #0056b3;
+}

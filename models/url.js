@@ -15,6 +15,10 @@ const urlSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  expiresAt: {
+    type: Date, // Store the expiration date
+    default: null,
+  },
 });
 
 const Url = mongoose.model("Url", urlSchema);
