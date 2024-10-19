@@ -8,7 +8,10 @@ import cron from "node-cron";
 const app = express();
 
 // Database connection
-mongoose.connect("mongodb://localhost/urlshortener", {});
+mongoose.connect(
+  process.env.MONGO_URI || "mongodb://localhost:27017/urlshortener",
+  {}
+);
 
 cron.schedule("0 0 * * *", async () => {
   try {
